@@ -1,0 +1,78 @@
+1)
+
+BACK END
+
+sql shell:
+(comandos de sql terminan con ; , los que no lo tienen son de la consola)
+\l : da lista de base de datos de este servidor creadas
+
+DROP DATABASE NOMBREDEBASEDEDATOS;: borra base de datos
+
+CREATE DATABASE NOMBREBASE;:crea base de datos
+
+\c nombrebasedatos: conectado a la base de datos
+
+\dt: veo tablas de la base de datos(data table)
+
+SELECT FROM * "nombreDeLaVariable"; (muestra todo lo que guarda)
+
+para ver los tipos de datos : https://www.postgresql.org/docs/current/datatype.html
+
+CREATE TABLE Pokemons
+{
+ID serial primary key NOT NULL,
+Nombre varchar(40) NOT NULL,
+Imagen NOT NULL,
+Vida varchar(40) NOT NULL,
+Ataque NOT NULL,
+Defensa NOT NULL,
+Velocidad varchar(15)
+Altura varchar(10)
+Peso varchar(8)
+}
+
+CREATE TABLE Type
+{
+ID serial primary key NOT NULL,
+Nombre varchar(40) NOT NULL,
+}
+
+orm2 29:49 voy, debo fijarme en el imsonnia como hizo antes
+ en este video a mendida que va creando aver si se me crean
+
+npm i express morgan nodemon sequelize pg pg-hstore axios
+-npm start en carpeta "API" y ver si leventa proyecto.
+-Crear carpeta controllers y agregar rutas
+
+-Bullcreate (uso de postgre copia lo que trae de la api y la pega en la base de datos)
+-Hago los distintos tipos de rutas en el routes index.
+-Dentro de los controllers creo los distintos tipos de rutas, ya sen pedidas por query, body, params.
+
+
+
+FRONT END
+-npm create vite@latest, me va guiando para Vite+react, ver xq es mejor
+-Instalar npm i react redux react-router-dom react-router-dom@6 (apra usar las librerias de react y redux)
+-Cada componente deve returnarse y cada cosa que se ponga denteo, va en un solo div masivo
+-Si quiero usar Boottarp hago npm install bootstrap@latest para instalr ultima version de bootstrap y en index o app pongo:
+import 'bootstrap/dist/css/bootstrap.min.css'
+-Los comnponentes se escriben con mayuscula sino no andan.
+-Creamos react  npx create-react-app nombreaplicacion
+-Maneja classname no class react.
+-Los css deben ser ejemplo.module.css
+-Para instalar react 6 para las routes npm instarll react-router-dom@6 y en el aricho main debo poner:
+import {BrowserRouter}  from "react-router-dom";
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </React.StrictMode>,
+  
+)
+
+-En nuestro caso directamente hacemos npm i
+-Si hacemos npm start vamos a poder levantar el server.
+-React-routing-dom, se instala y se usa para que cada vez que pongamos algo en la barra me dirija a otros lugares,
+ ejemplo localhost3000/home o localhost3000/home/perros 
