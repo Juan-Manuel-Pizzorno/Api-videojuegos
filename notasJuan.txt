@@ -51,6 +51,7 @@ npm i express morgan nodemon sequelize pg pg-hstore axios
 
 
 FRONT END
+-Alt+SHIFT+F acomoda todo el codigo prolijo, lo apreto en cualquier lado Dentro
 -npm create vite@latest, me va guiando para Vite+react, ver xq es mejor
 -Instalar npm i react redux react-router-dom react-router-dom@6 (apra usar las librerias de react y redux)
 -Cada componente deve returnarse y cada cosa que se ponga denteo, va en un solo div masivo
