@@ -1,16 +1,38 @@
 
-export default function Card() {
+export default function Card(props) { //recibo por props lo que quiero pasarle al componente
 
     return (
         <div>
-       <div className="card" >
-  <img src="..." className="card-img-top" alt="..."/>
-  <div className="card-body">
-    <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
-</div>
+            <div className="card" >
+                <img src="..." className="card-img-top" alt="..." />
+                <div className="card-body">
+                     <h2>{props.image}</h2>
+                     <h2>{props.name}</h2>
+                   
+                </div>
+            </div>
 
 
         </div>
     )
 }
+/*
+
+import { Link } from "react-router-dom";
+
+export default function Card(props) {
+
+    const { id, image, name, genres, rating } = props;
+
+
+    return (
+        <div className={div}>
+            <Link to={`/detail/${id}`}>
+                <img className={img} src={image} alt="" />
+                <h2 className={nameid}>{name}</h2>
+                <h2 className={h2}>{genres}</h2>
+                <h2 className={h2Rat}>{rating}</h2>
+            </Link>
+        </div>
+    );
+}*/
