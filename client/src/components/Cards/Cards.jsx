@@ -1,22 +1,15 @@
-import Card from "../Card/Card"
-import Navbar from "../Navbar/Navbar"
-import Pagination from "../Pagination/Pagination"
-import Footer from "../Footer/Footer"
-
 export default function Cards() {
-
   return (
     <div>
 
-      <Navbar />
+      <div className="card" >
+        <img src="..." className="card-img-top" alt="..." />
+        <div className="card-body">
+          <h2>{character.image}</h2>
+          <h2>{character.name}</h2>
+        </div>
+      </div>
 
-      <Card />
-      <Pagination />
-      <Footer />
     </div>
-
-
-
   )
-
 }

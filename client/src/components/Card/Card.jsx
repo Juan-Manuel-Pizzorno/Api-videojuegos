@@ -1,16 +1,9 @@
 
-export default function Card(props) { //recibo por props lo que quiero pasarle al componente
+export default function Card() { //recibo por props lo que quiero pasarle al componente
 
     return (
         <div>
-            <div className="card" >
-                <img src="..." className="card-img-top" alt="..." />
-                <div className="card-body">
-                     <h2>{props.image}</h2>
-                     <h2>{props.name}</h2>
-                   
-                </div>
-            </div>
+
 
 
         </div>
