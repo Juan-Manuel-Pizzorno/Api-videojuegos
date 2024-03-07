@@ -1,32 +1,33 @@
-import {GET_VIDEOGAMES,GET_VIDEOGAMES_BY_NAME,GET_VIDEOGAMES_BY_ID,GET_GENRES} from "./types"
+import {GET_VIDEOGAMES,GET_VIDEOGAMES_BY_NAME,GET_VIDEOGAMES_BY_ID,GET_GENRES,CLEAN_DETAIL} from "./types"
 
 const initialState={ //el estado es un objeto
-    getVideogames:[],
-    getVideogamesByName:[],
-    getVideogamesById:[],
-    getGenres:[],
+    videogames:[],
+    videogamesByName:[],
+    videogameById:[],
+    allGenres:[],
 
 }
 
-export default function rootReducer(state = initialState, action){
+const rootReducer =(state = initialState, {type, payload})=>{
 
-    switch (action.type) {
+    switch (type) {
         case GET_VIDEOGAMES:
-            return{...state,getVideogames:action.payload};
+            return{...state,videogames:payload};
 
         case GET_VIDEOGAMES_BY_NAME:
-            return{...state,getVideogamesByName:action.payload};
+            return{...state,videogamesByName:payload};
         
         case GET_VIDEOGAMES_BY_ID:
-            return{...state,getVideogamesById:action.payload};
+            return{...state,videogameById:payload};
 
         case GET_GENRES:
-            return{...state,getGenres:action.payload};    
-        case CLEAN_DETAIL:
-            return{...state,getVideogamesById:{}};   //estará bien?
+            return{...state,allGenres:payload};    
+
 
             default:
                 return{...state};
     }
 
 };
+
+export default rootReducer;

@@ -1,4 +1,17 @@
 export default function Cards() {
+  return(
+    <div></div>
+  )
+}
+
+/*
+const videogame=useSelector((state)=>state.);
+
+
+
+export default function Cards() {
+
+
   return (
     <div>
 
@@ -12,4 +25,4 @@ export default function Cards() {
 
     </div>
   )
-}
+}*/

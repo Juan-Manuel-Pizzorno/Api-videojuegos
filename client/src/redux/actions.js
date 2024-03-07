@@ -1,3 +1,4 @@
+import{GET_VIDEOGAMES,GET_VIDEOGAMES_BY_NAME,GET_VIDEOGAMES_BY_ID,GET_GENRES,CLEAN_DETAIL} from "./types"
 
 export const getVideogames=()=>{
     return function(dispatch){ 
@@ -15,11 +16,16 @@ export const getVideogamesByName=()=>{
     };
 };
 
-export const getVideogamesById=()=>{
-    return function(dispatch){ 
+export const getVideogamesById = (id) => {
+    return function(dispatch) { 
         fetch(`http://localhost:3001/videogames/${id}`)
-        .then((response)=>response.json())
-        .then((data)=>dispatch({type:GET_VIDEOGAMES_BY_ID,payload:data}));
+        .then((response) => response.json())
+        .then((data) => {
+            dispatch({ type: GET_VIDEOGAMES_BY_ID, payload: data });
+        })
+        .catch((error) => {
+            console.error('Error fetching videogame by ID:', error);
+        });
     };
 };
 
