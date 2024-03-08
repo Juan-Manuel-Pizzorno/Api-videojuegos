@@ -27,30 +27,34 @@ const getVideogamesById = async (req, res) => {
       const {
         name,
         description,
-        metacritic_platforms,
+        platforms,
         background_image,
         genres,
         released,
         rating,
       } = response.data;
 
-      
-      const platforms = metacritic_platforms.map(platformData => {
+      // Creo un filtro solo para quedarme con lo que necesito ya que el objeto posee varias propiedades, solo necesto las plataformas
+      const plataformsName = platforms.map(platforms => {
         return {
-          name: platformData.platform.name,
+          name: platforms.platform.name,
         };
       });
+      
 
-      const genreNames = genres.map(genre => genre.name); 
-      const genresString = genreNames.join(", ");
+      // Creo un filtro solo para quedarme con lo que necesito ya que el objeto posee varias propiedades,
+      // solo necesto el nombre de los generos y luego le aplico el .join para separarlo por "",""
+      
+      const genreNames = genres.map(genre => genre.name).join(", ");
+      
 
       const videogame = {
         id, // Asignar un nuevo ID local incremental
         name,
         description,
-        metacritic_platforms:platforms,
+        platforms:plataformsName,
         background_image: background_image, // Usar la URL de la imagen del juego
-        genres:genresString,
+        genres:genreNames,
         released,
         rating,
       };
