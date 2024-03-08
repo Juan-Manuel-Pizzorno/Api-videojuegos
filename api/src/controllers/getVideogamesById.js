@@ -1,6 +1,7 @@
 const { Videogames, Genres } = require("../db");
 const axios = require("axios");
-require("dotenv").config(); // Cargar las variables de entorno
+const cheerio = require('cheerio');
+require("dotenv").config();
 
 const API_KEY = process.env.API_KEY;
 const URL = `https://api.rawg.io/api/games/`;
@@ -9,7 +10,6 @@ const getVideogamesById = async (req, res) => {
   try {
     const id = req.params.idVideogame;
 
-    // Buscar el videojuego en la base de datos
     const videogameInDB = await Videogames.findOne({
       where: { id: id },
       include: {
@@ -34,27 +34,29 @@ const getVideogamesById = async (req, res) => {
         rating,
       } = response.data;
 
-      // Creo un filtro solo para quedarme con lo que necesito ya que el objeto posee varias propiedades, solo necesto las plataformas
-      const plataformsName = platforms.map(platforms => {
-        return {
-          name: platforms.platform.name,
-        };
-      });
-      
+      //Desde la API me viene la descripcion con etiquetas HTML con esto las limpia
+      const applyHtmlProperties = (htmlString) => {
+        const $ = cheerio.load(htmlString);
+        return $.text();
+      };
 
-      // Creo un filtro solo para quedarme con lo que necesito ya que el objeto posee varias propiedades,
-      // solo necesto el nombre de los generos y luego le aplico el .join para separarlo por "",""
+      //Paso la description del juego por la funcion de eliminar etiquetas html
+      const htmlWithProperties = applyHtmlProperties(description);
+
       
-      const genreNames = genres.map(genre => genre.name).join(", ");
       
+      //Aplico filtros para quedarme con las propiedades que solo necesito mostrar desde la API,
+      //en este caso solo me interesan los generos de los juegos y las plataformas
+      const platformNames = platforms.map((platform) => platform.platform.name).join(", ");
+      const genreNames = genres.map((genre) => genre.name).join(", ");
 
       const videogame = {
-        id, // Asignar un nuevo ID local incremental
+        id,
         name,
-        description,
-        platforms:plataformsName,
-        background_image: background_image, // Usar la URL de la imagen del juego
-        genres:genreNames,
+        description: htmlWithProperties,
+        platforms: platformNames,
+        background_image: background_image,
+        genres: genreNames,
         released,
         rating,
       };
