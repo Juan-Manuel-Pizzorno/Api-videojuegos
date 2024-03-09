@@ -1,5 +1,5 @@
 .fond{
-    background-image: url("https://www.xtrafondos.com/wallpapers/cyberpunk-2077-chico-samurai-11363.jpg");
+    /*background-image: url("https://www.xtrafondos.com/wallpapers/cyberpunk-2077-chico-samurai-11363.jpg");/*
     /* Establecer una altura específica, por ejemplo, 100vh para que ocupe todo el alto de la pantalla */
     height: 100vh;
     /* Centrar la imagen de fondo horizontal y verticalmente */
@@ -9,5 +9,19 @@
     /* Fijar la imagen de fondo para que se mantenga en su posición al hacer scroll */
     background-attachment: fixed;
     /* Opcional: agregar un color de fondo como respaldo si la imagen no se carga o no cubre completamente */
-    background-color: #be1212; /* Cambia esto al color que desees */
+    background-color: #fff9f9; /* Cambia esto al color que desees */
 }
+
+.a-container {
+    width: 50px; /* Ancho deseado */
+    height: 50px; /* Altura deseada */
+    overflow: hidden; /* Para recortar cualquier parte de la imagen que exceda las dimensiones */
+    color: blue;
+  }
+  
+  .a {
+    width: 50%; /* Para asegurar que la imagen llene completamente el contenedor */
+    height: 50%; /* Para asegurar que la imagen llene completamente el contenedor */
+    object-fit: cover; /* Para que la imagen se ajuste dentro del contenedor sin distorsión, cubriendo completamente el contenedor */
+  }
+

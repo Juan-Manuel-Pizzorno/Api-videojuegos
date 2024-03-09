@@ -1,4 +1,5 @@
 import{GET_VIDEOGAMES,GET_VIDEOGAMES_BY_NAME,GET_VIDEOGAMES_BY_ID,GET_GENRES,CLEAN_DETAIL} from "./types"
+import axios from 'axios';
 
 export const getVideogames=()=>{
     return function(dispatch){ 
@@ -17,17 +18,14 @@ export const getVideogamesByName=()=>{
 };
 
 export const getVideogamesById = (id) => {
-    return function(dispatch) { 
-        fetch(`http://localhost:3001/videogames/${id}`)
-        .then((response) => response.json())
-        .then((data) => {
-            dispatch({ type: GET_VIDEOGAMES_BY_ID, payload: data });
-        })
-        .catch((error) => {
-            console.error('Error fetching videogame by ID:', error);
-        });
-    };
-};
+    return async (dispatch) => {
+      const response = await axios.get(`http://localhost:3001/videogames/${id}`);
+      dispatch({
+        type: GET_VIDEOGAMES_BY_ID,
+        payload: response.data,
+      });
+  };
+  }
 
 export const getGenres=()=>{
     return function(dispatch){ 
