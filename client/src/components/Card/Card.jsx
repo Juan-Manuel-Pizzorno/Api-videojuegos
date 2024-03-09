@@ -39,7 +39,7 @@ export default function Card() {
                     <h2> {id} </h2>
                     <h1>{name} </h1>
                     <br />
-                    <img src={videogame.background_image} alt="" className={a} />
+                    <img src={videogame.background_image} alt="" classnameName={a} />
                     <br />
                     <br />
                     <hr />
@@ -76,38 +76,65 @@ export default function Card() {
             setTimeout(async () => {
                 await dispatch(getVideogamesById(id)); // Espera a que se complete la acción
                 setLoading(false); // Establece loading a false después de cargar los datos
-            }, ); // Cambia este valor a la cantidad de tiempo que deseas simular la carga (en milisegundos)
+            },); // Cambia este valor a la cantidad de tiempo que deseas simular la carga (en milisegundos)
         };
         videogameById();
     }, [dispatch, id]);
 
 
-const { a } = Styles;
-const { name, description, released, background_image, rating, genres, platforms } = videogame;
-const imageFail="https://pbs.twimg.com/media/DcwoS-VWkAIB60j.jpg"
-console.log(background_image)
+    const { a,span, wrapper, productImg, productText,productTextH1,productTextH2,productTextP, productInfo, productPriceBtn } = Styles;
+    const { name, description, released, background_image, rating, genres, platforms } = videogame;
+    const imageFail = "https://pbs.twimg.com/media/DcwoS-VWkAIB60j.jpg"
+    console.log(background_image)
 
-return (
-    <div>
-        {loading ? (
-            <h1>CARGANDO..</h1>
-        ) : (
-            <div>
-                <h2> {id} </h2>
-                <h1>{name} </h1>
-                <br />
-                <img src={background_image?background_image:imageFail} alt="" className={a} />
-                <br />
-                <br />
-                <hr />
-                <h3>Plataformas: {platforms} </h3><br />
-                
-                <hr />
-                <h3> Lanzamiento: {released} </h3><br />
-                <h3>Rating: {rating} </h3><br />
-                <h3>Generos: {genres} </h3><br />
+    return (
+        <div>
+            {loading ? (
+                <h1>CARGANDO..</h1>
+            ) : (
+               /* <div>
+                    <h2> {id} </h2>
+                    <h1>{name} </h1>
+                    <br />
+                    <img src={background_image ? background_image : imageFail} alt="" className={a} />
+                    <br />
+                    <br />
+                    <hr />
+                    <h3>Plataformas: {platforms} </h3><br />
+                    <h2>Descripción: {description} </h2>
+                    <hr />
+                    <h3> Lanzamiento: {released} </h3><br />
+                    <h3>Rating: {rating} </h3><br />
+                    <h3>Generos: {genres} </h3><br />
+                </div>
+            )}*/
+
+                    <div>
+                        <div>
+
+                            
+                        </div>
+            <div className= {wrapper}>
+                <div className={productImg}>
+                    <img src={background_image? background_image : imageFail} height="400" width="700" alt="Harvest Vase" />
+                </div>
+                <div className={productInfo} >
+                    <div className={productText}>
+                        <h1 className={productTextH1}>{name}</h1>
+                        <h2 className={productTextH2}>{platforms} </h2>
+                        <p className={productTextP}>{description} </p>
+                    </div>
+                    
+                </div>
             </div>
-        )}
-    </div>
-);
+            </div>
+            )}
+        </div>
+        
+
+
+
+
+
+    );
 }
