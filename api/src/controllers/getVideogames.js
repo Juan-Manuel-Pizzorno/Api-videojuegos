@@ -14,12 +14,13 @@ const getVideogames = async (req, res) => {
 
     const videoArray = videogames.map((videogame) => {
 
-      const {id,name,description,platforms,image,released,rating} = videogame;
+      const {id,name,platforms,image} = videogame;
+      const platformImage = platforms.map((platforms) => platforms.platform.image_background);
 
     
 
       return {
-        id,name,description,platforms,image,released,rating
+        id,name,platforms:platformImage,image
       };
     });
 
