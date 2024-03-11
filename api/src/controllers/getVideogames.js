@@ -14,13 +14,14 @@ const getVideogames = async (req, res) => {
 
     const videoArray = videogames.map((videogame) => {
 
-      const {id,name,platforms,image} = videogame;
-      const platformImage = platforms.map((platforms) => platforms.platform.image_background);
+      const {id,name,background_image,genres} = videogame;
+
+      const genreNames = genres.map((genre) => genre.name).join(", ");
 
     
 
       return {
-        id,name,platforms:platformImage,image
+        id,name,background_image,genreNames
       };
     });
 

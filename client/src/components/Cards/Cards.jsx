@@ -13,7 +13,7 @@ export default function Cards() {
 
   useEffect(() => {
     const videogames = async () => {
-     
+
       setTimeout(async () => {
         await dispatch(getVideogames()); // Espera a que se complete la acción, sino aparece la imagen default
         //setLoading(false); // Establece loading a false después de cargar los datos
@@ -23,31 +23,31 @@ export default function Cards() {
     videogames();
   }, [dispatch]);
 
-  
-  const hola=videogame.map(videogames=>videogames.name) //con esto saco el nombre de todos
+
+  //const hola = videogame.map(videogames => videogames.name) //con esto saco el nombre de todos
 
   return (
     <div>
-      
-      {
-    videogame.map(videogame=>
 
-      <Row xs={1} md={2} className="g-4">
-        {Array.from({ length: 4 }).map((_, idx) => (
-          <Col key={videogame.id}>
-            <Card>
-              <Card.Img variant="top" src={videogame.background_image} />
-              <Card.Body>
-                <Card.Title> {videogame.name}  </Card.Title>
-                <Card.Text>
-                 {videogame.id}
-                </Card.Text>
-              </Card.Body>
-            </Card>
-          </Col>
-        ))}
-      </Row>
-    )}
+      {
+        videogame.map(videogame =>
+
+          <Row xs={1} md={2} className="g-4" key={videogame.id}>
+            {Array.from({ length: 1 }).map((_, idx) => (
+              <Col key={videogame.id}>
+                <Card >
+                  <Card.Img variant="top" src={videogame.background_image} />
+                  <Card.Body>
+                    <Card.Title> {videogame.name}  </Card.Title>
+                    <Card.Text>
+                      {videogame.genreNames}
+                    </Card.Text>
+                  </Card.Body>
+                </Card>
+              </Col>
+            ))}
+          </Row>
+        )}
 
 
 
