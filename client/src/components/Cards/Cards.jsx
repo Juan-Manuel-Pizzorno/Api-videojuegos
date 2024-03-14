@@ -19,23 +19,21 @@ export default function Cards() {
   }, [dispatch]);
 
   return (
-    
-    
-        
-          <Row xs={1} md={2} className="g-4" >
-            {videogame.map(videogame => (
-              <Col key={videogame.id}>
-                <Card key={videogame.id}>
-                  <Card.Img variant="top" src={videogame.background_image} />
-                  <Card.Body>
-                    <Card.Title>{videogame.name}</Card.Title>
-                    <Card.Text>
-                      {videogame.genreNames}
-                    </Card.Text>
-                  </Card.Body>
-                </Card>
-              </Col>
-            ))}
-          </Row>
-        )
+
+    <Row xs={1} md={2} className="g-4" >
+      {videogame.map(videogame => (
+        <Col key={videogame.id}>
+          <Card key={videogame.id}>
+            <Card.Img variant="top" src={videogame.background_image} />
+            <Card.Body>
+              <Card.Title>{videogame.name}</Card.Title>
+              <Card.Text>
+                {videogame.genreNames}
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </Col>
+      ))}
+    </Row>
+  )
 }
