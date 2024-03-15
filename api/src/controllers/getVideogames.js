@@ -27,7 +27,7 @@ const getVideogames = async (req, res) => {
       //Aqui guardo la constante para ir a la siguiente página ya que cada página tiene 20 juegos solamente
       URL = next;
     }
-    //luego de guardar toda la información en videoArray, desestructuro en partes el mismo y lo guardo en 
+    //luego de guardar toda la información en videoArray, desestructuro en partes el mismo y lo guardo en
     //otro array videogames
     videogames = videoArray.map((videogame) => {
       //Desestructuro los datos de la API que necesecito en cada item, tal cual viene de la Api
