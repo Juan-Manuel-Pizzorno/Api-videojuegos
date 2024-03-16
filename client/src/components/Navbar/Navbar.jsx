@@ -1,5 +1,9 @@
+import { getVideogamesByName, cleanDetail } from "../../redux/actions";
 
 export default function Navbar() {
+    //uso use estate
+    //habnldestate seteo name, imput
+    //ojnsearch despacho accion dl nombre, boton de buscar
 
     return (
         <div>

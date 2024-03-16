@@ -19,8 +19,8 @@ dinámicamente los estilos cuando el mouse entra y sale de la tarjeta, creando e
 
 
 const cardStyle = {
-  width:"600px",
-  height: '400px', // Ajusta la altura según tus necesidades
+  width:"300px",
+  height: '300px', // Ajusta la altura según tus necesidades
   transition: 'box-shadow 0.3s', // Transición suave del efecto
 };
 
@@ -53,7 +53,7 @@ export default function Cards() {
               onMouseEnter={() => setHoveredCard(videogame.id)}
               onMouseLeave={() => setHoveredCard(null)}
             >
-              <Card.Img variant="top" src={videogame.background_image} style={{ height: "300px",width:"600px" }} />
+              <Card.Img variant="top" src={videogame.background_image} style={{ height: "200px",width:"300px" }} />
               <Card.Body>
                 <Card.Title>{videogame.name}</Card.Title>
                 <Card.Text>

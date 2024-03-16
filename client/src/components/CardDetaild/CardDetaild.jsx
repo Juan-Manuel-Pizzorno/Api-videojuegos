@@ -36,7 +36,6 @@ export default function CardDetail() {
             ) : (
                 <div className={juana}>
 
-
                     <Card style={{ width: '50rem' }}>
                         <Card.Img variant="top" src={background_image ? background_image : imageFail} />
                         <Card.Body>
@@ -57,8 +56,6 @@ export default function CardDetail() {
                         </ListGroup>
 
                     </Card>
-
-
 
                 </div>
             )}
