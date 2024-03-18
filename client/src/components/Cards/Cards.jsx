@@ -19,7 +19,7 @@ dinámicamente los estilos cuando el mouse entra y sale de la tarjeta, creando e
 
 
 const cardStyle = {
-  width:"300px",
+  width: "300px",
   height: '300px', // Ajusta la altura según tus necesidades
   transition: 'box-shadow 0.3s', // Transición suave del efecto
 };
@@ -44,26 +44,30 @@ export default function Cards() {
 
   return (
 
-    <Row xs={5} md={4} className="g-5" >
-      {videogame.map(videogame => (
-        <Col key={videogame.id}>
-          <Link to={`/videogames/${videogame.id}`} style={{ textDecoration: 'none' }}>
-            <Card
-              style={ videogame.id === hoveredCard ? hoverCardStyle : cardStyle}
-              onMouseEnter={() => setHoveredCard(videogame.id)}
-              onMouseLeave={() => setHoveredCard(null)}
-            >
-              <Card.Img variant="top" src={videogame.background_image} style={{ height: "200px",width:"300px" }} />
-              <Card.Body>
-                <Card.Title>{videogame.name}</Card.Title>
-                <Card.Text>
-                  {videogame.genreNames}
-                </Card.Text>
-              </Card.Body>
-            </Card>
-          </Link>
-        </Col>
-      ))}
-    </Row>
+
+
+    videogame.map(videogame => (
+
+      <Link to={`/videogames/${videogame.id}`} style={{ textDecoration: 'none' }}  >
+
+        <Card 
+          style={videogame.id === hoveredCard ? hoverCardStyle : cardStyle}
+          onMouseEnter={() => setHoveredCard(videogame.id)}
+          onMouseLeave={() => setHoveredCard(null)}
+        >
+          <Card.Img variant="top" src={videogame.background_image} style={{ height: "200px", width: "300px" }} />
+          <Card.Body>
+            <Card.Title>{videogame.name}</Card.Title>
+            <Card.Text>
+              {videogame.genreNames}
+            </Card.Text>
+          </Card.Body>
+        </Card>
+      </Link>
+
+    ))
+
+
+
   )
 }

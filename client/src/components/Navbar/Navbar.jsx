@@ -1,9 +1,11 @@
 import { getVideogamesByName, cleanDetail } from "../../redux/actions";
+import {useState } from "react";
 
 export default function Navbar() {
     //uso use estate
     //habnldestate seteo name, imput
     //ojnsearch despacho accion dl nombre, boton de buscar
+    //const [search, setSearch] = useState();
 
     return (
         <div>

@@ -15,7 +15,7 @@ export const getVideogames = () => {
   };
 };
 
-export const getVideogamesByName = () => {
+export const getVideogamesByName = (name) => {
   return function (dispatch) {
     fetch(`http://localhost:3001/videogames/name?name="${name}"`)
       .then((response) => response.json())
